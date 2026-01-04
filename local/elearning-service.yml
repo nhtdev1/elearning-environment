@@ -29,7 +29,7 @@ spring:
       minimum-idle: 3 # This means that HikariCP will maintain a minimum of 3 idle connections in the pool at all times
   data:
     redis:
-      database: 3
+      database: 0
       port: 6379
       timeout: 30000
       host: localhost
