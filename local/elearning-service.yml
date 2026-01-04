@@ -1,0 +1,77 @@
+server:
+  port: ${PORT:7716}
+  servlet:
+    context-path: /elearning-service
+
+spring:
+  application:
+    security:
+      jwt:
+        secret-key: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+        expiration: 86400000 # a day
+        refresh-token:
+          expiration: 2419200000 # 1 month
+        reset-token:
+          expiration: 900000 # 15 minutes
+  firebase:
+    filepath: firebase-service-account.json
+  datasource:
+    url: jdbc:postgresql://192.168.121.23:5432/elearning_dev
+    username: postgres
+    password: X@x123987654
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      pool-name: elearning-dev-pool
+      maximum-pool-size: 50 #This means that HikariCP can maintain a maximum of 50 connections in the pool at any given time.
+      max-lifetime: 1800000 # a connection is allowed to live in the pool for a maximum of 30 minutes before it is closed and removed from the pool
+      idle-timeout: 300000 # after 5 minutes, if a connection is idle for longer than 5 minutes, it will be closed and removed from the pool
+      connection-timeout: 30000 #  if a connection is not available within 30 seconds, a SQLException will be thrown
+      minimum-idle: 3 # This means that HikariCP will maintain a minimum of 3 idle connections in the pool at all times
+  data:
+    redis:
+      database: 3
+      port: 6379
+      timeout: 30000
+      host: 192.168.121.32
+      username: default
+      password: 12345678x@X
+  cache:
+    type: redis
+    redis:
+      time-to-live: '45000'
+      cache-null-values: 'true'
+  session:
+    store-type: redis
+    redis:
+      namespace: dev
+    properties:
+      hibernate:
+        id:
+          new_generator_mappings: 'true'
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: t10tqh@gmail.com
+    password: pyomoafrtlybjlmg
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+  servlet:
+    multipart:
+      max-file-size: 25MB
+      max-request-size: 25MB
+
+app:
+  swagger-url: https://api-swwebdeverp-develop.tma-swerp.com
