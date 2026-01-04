@@ -1,0 +1,94 @@
+server:
+  port: ${PORT:8080}
+
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins:
+              - 'http://localhost:4200'
+              - 'http://localhost:8080'
+              - 'http://localhost'
+              - 'capacitor://localhost'
+              - 'https://crm.tma-swerp.com'
+              - 'https://crm-dev.tma-swerp.com'
+              - 'https://dev-crm.tma-swerp.com'
+              - 'https://dev-sso.tma-swerp.com'
+              - 'https://dev-cart.tma-swerp.com'
+              - 'https://dev-statistics.tma-swerp.com'
+              - 'https://api-dev.tma-swerp.com'
+              - 'https://dev-task.tma-swerp.com'
+              - 'https://crm-qa.tma-swerp.com'
+              - 'https://qa-crm.tma-swerp.com'
+              - 'https://qa-sso.tma-swerp.com'
+              - 'https://qa-cart.tma-swerp.com'
+              - 'https://qa-statistics.tma-swerp.com'
+              - 'https://api-qa.tma-swerp.com'
+              - 'https://qa-task.tma-swerp.com'
+              - 'https://crm-production.tma-swerp.com'
+              - 'https://crm-live.tma-swerp.com'
+              - 'https://crm-bdu.tma-swerp.com'
+              - 'https://crm-bdu-dev.tma-swerp.com'
+              - 'https://production-crm.tma-swerp.com'
+              - 'https://production-sso.tma-swerp.com'
+              - 'https://production-cart.tma-swerp.com'
+              - 'https://production-statistics.tma-swerp.com'
+              - 'https://api-production.tma-swerp.com'
+              - 'https://production-task.tma-swerp.com'
+
+            allowedMethods:
+              - '*'
+            allowedHeaders:
+              - '*'
+      routes:
+        # =====================================
+        - id: sso
+          uri: lb://sso-service
+          predicates:
+            - Path=/sso-service/**
+        # =====================================
+        - id: bdu
+          uri: lb://bdu-service
+          predicates:
+            - Path=/bdu-service/**
+        # =====================================
+        - id: crm
+          uri: lb://crm-service
+          predicates:
+            - Path=/crm-service/**
+        # =====================================
+        - id: notification
+          uri: lb://notification-service
+          predicates:
+            - Path=/notification-service/**
+        # =====================================
+        - id: comment
+          uri: lb://comment-service
+          predicates:
+            - Path=/comment-service/**
+        # =====================================
+        - id: statistics
+          uri: lb://statistics-service
+          predicates:
+            - Path=/statistics-service/**
+        # =====================================
+        - id: task
+          uri: lb://task-service
+          predicates:
+            - Path=/task-service/**
+        # =====================================
+        - id: storage
+          uri: lb://storage-service
+          predicates:
+            - Path=/storage-service/**
+        # =====================================
+        - id: cart
+          uri: lb://cart-service
+          filters:
+            - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+          predicates:
+            - Path=/cart-service/**
