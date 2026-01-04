@@ -16,7 +16,7 @@ spring:
   firebase:
     filepath: firebase-service-account.json
   datasource:
-    url: jdbc:postgresql://192.168.121.23:5432/elearning_dev
+    url: jdbc:postgresql://localhost:5432/elearning_dev
     username: postgres
     password: X@x123987654
     driver-class-name: org.postgresql.Driver
@@ -29,10 +29,10 @@ spring:
       minimum-idle: 3 # This means that HikariCP will maintain a minimum of 3 idle connections in the pool at all times
   data:
     redis:
-      database: 3
+      database: 0
       port: 6379
       timeout: 30000
-      host: 192.168.121.32
+      host: localhost
       username: default
       password: 12345678x@X
   cache:
