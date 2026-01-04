@@ -41,7 +41,7 @@ spring:
       protocol: smtp
   data:
     redis:
-      database: 1
+      database: 0
       port: 6379
       timeout: 30000
       host: localhost
