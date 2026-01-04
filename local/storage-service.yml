@@ -1,0 +1,21 @@
+server:
+  servlet:
+    context-path: /storage
+  port: ${POST:8810}
+  tomcat:
+    max-swallow-size: 500MB
+    max-http-form-post-size: 500MB
+logging:
+  level:
+    org:
+      springframework:
+        web: ERROR
+spring:
+  mongodb:
+    database: db_erp_storage
+  servlet:
+    multipart:
+      max-request-size: 500MB
+      max-file-size: 500MB
+      file-size-threshold: 10KB
+      enabled: true
