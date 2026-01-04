@@ -8,7 +8,9 @@ server:
       file-size-threshold: 2KB
       max-file-size: 200MB
       max-request-size: 215MB
-    
+  http2:
+    enabled: true
+
 spring:
   package-version: 1.0.0
   web:
@@ -39,7 +41,7 @@ spring:
       protocol: smtp
   data:
     redis:
-      database: 0
+      database: 1
       port: 6379
       timeout: 30000
       host: 192.168.121.32
@@ -77,45 +79,43 @@ kafka:
     properties:
       spring.json.add.type.headers: false
   groups:
-    create-sso-account: ${CREATE_SSO_ACCOUNT_ID:create-account-group-crm-prod}
-    update-sso-account: ${UPDATE_SSO_ACCOUNT_ID:update-account-group-crm-prod}
-    delete-sso-account: ${DELETE_SSO_ACCOUNT_ID:delete-account-group-crm-prod}
-    sync-account-topic: sync-account-group-crm-prod
+    create-sso-account: ${CREATE_SSO_ACCOUNT_ID:create-account-group-crm}
+    update-sso-account: ${UPDATE_SSO_ACCOUNT_ID:update-account-group-crm}
+    delete-sso-account: ${DELETE_SSO_ACCOUNT_ID:delete-account-group-crm}
+    sync-account-topic: sync-account-group-crm
   topics:
-    create-account-topic: create-account-topic-prod
-    update-account-topic: update-account-topic-prod
-    delete-account-topic: delete-account-topic-prod
-    sync-account-topic: sync-account-topic-prod
-    create-customer-topic: create-customer-topic-prod
-    create-product-topic: create-product-topic-prod
-    create-contract-topic: create-contract-topic-prod
-    update-customer-topic: update-customer-topic-prod
-    update-product-topic: update-product-topic-prod
-    update-contract-topic: update-contract-topic-prod
-    delete-customer-topic: delete-customer-topic-prod
-    delete-product-topic: delete-product-topic-prod
-    delete-contract-topic: delete-contract-topic-prod
-    send-customer-sms-for-marketing-topic: send-customer-sms-for-marketing-topic-prod
-    cancel-send-customer-sms-for-marketing-topic: cancel-send-customer-sms-for-marketing-topic-prod
-    send-customer-email-for-survey-topic: send-customer-email-for-survey-topic-prod
-    send-user-email-for-survey-topic: send-user-email-for-survey-topic-prod
-    send-guest-email-for-survey-topic: send-guest-email-for-survey-topic-prod
-    schedule-send-mail-topic: schedule-send-mail-topic-prod
-    cancel-schedule-send-mail-topic: cancel-schedule-send-mail-topic-prod
-    test-send-mail-topic: test-send-mail-topic-prod
-    send-mail-topic: send-mail-topic-prod
+    create-account-topic: k8s_dev_create-account-topic
+    update-account-topic: k8s_dev_update-account-topic
+    delete-account-topic: k8s_dev_delete-account-topic
+    sync-account-topic: k8s_dev_sync-account-topic
+    create-customer-topic: k8s_dev_create-customer-topic
+    create-product-topic: k8s_dev_create-product-topic
+    create-contract-topic: k8s_dev_create-contract-topic
+    update-customer-topic: k8s_dev_update-customer-topic
+    update-product-topic: k8s_dev_update-product-topic
+    update-contract-topic: k8s_dev_update-contract-topic
+    delete-customer-topic: k8s_dev_delete-customer-topic
+    delete-product-topic: k8s_dev_delete-product-topic
+    delete-contract-topic: k8s_dev_delete-contract-topic
+    send-customer-sms-for-marketing-topic: k8s_dev_send-customer-sms-for-marketing-topic
+    cancel-send-customer-sms-for-marketing-topic: k8s_dev_cancel-send-customer-sms-for-marketing-topic
+    send-customer-email-for-survey-topic: k8s_dev_send-customer-email-for-survey-topic
+    send-user-email-for-survey-topic: k8s_dev_send-user-email-for-survey-topic
+    send-guest-email-for-survey-topic: k8s_dev_send-guest-email-for-survey-topic
+    schedule-send-mail-topic: k8s_dev_schedule-send-mail-topic
+    cancel-schedule-send-mail-topic: k8s_dev_cancel-schedule-send-mail-topic
+    send-mail-topic: k8s_dev_send-mail-topic
 
-sending-survey-email-url: "https://crm-live.tma-swerp.com/survey-form?"
+sending-survey-email-url: "https://crm-dev.tma-swerp.com/survey-form?"
 
 eureka:
   instance:
     prefer-ip-address: true
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka
-    instance:
-      prefer-ip-address: true
-      instance-id: localhost:${server.port}
+      defaultZone: http://discovery:8761/eureka
+    register-with-eureka: true
+    fetch-registry: true
   
 management:
   tracing:
@@ -151,7 +151,6 @@ schedule:
       time : 0 0 0 * * ?
       zone : Asia/Ho_Chi_Minh
 
-
 app:
   client:
     domain: http://dev-sso.tma-swerp.com
@@ -161,5 +160,3 @@ app:
 jwt:
   accessTokenExpired: 602
   refreshTokenExpired: 720022424
-key:
-  forgot-password-expired: 300
