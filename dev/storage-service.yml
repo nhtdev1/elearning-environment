@@ -1,7 +1,7 @@
 server:
   servlet:
     context-path: /storage
-  port: ${POST:8810}
+  port: ${POST:8888}
   tomcat:
     max-swallow-size: 500MB
     max-http-form-post-size: 500MB
@@ -12,7 +12,7 @@ logging:
         web: ERROR
 spring:
   mongodb:
-    database: db_erp_storage
+    database: db_elearning_storage
   servlet:
     multipart:
       max-request-size: 500MB
