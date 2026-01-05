@@ -44,11 +44,11 @@ spring:
       database: 1
       port: 6379
       timeout: 30000
-      host: 192.168.121.32
+      host: localhost
       username: default
       password: 12345678x@X
   mongodb:
-    host: 192.168.121.22
+    host: localhost
     port: 27017
     username: mongouser
     password: 1_Abc_123@
