@@ -8,14 +8,22 @@ spring:
     password: X@x123987654
     driver-class-name: org.postgresql.Driver
     hikari:
-      pool-name: bot-service-local-pool
+      pool-name: bot-service-dev-pool
       maximum-pool-size: 20
       max-lifetime: 1800000
       idle-timeout: 300000
       connection-timeout: 30000
       minimum-idle: 2
+  data:
+    redis:
+      database: 0
+      port: 6379
+      timeout: 30000
+      host: localhost
+      username: default
+      password: 12345678x@X
 
 bot:
   service-api-key: ${BOT_SERVICE_API_KEY:bot-internal-secret-key}
-  elearning-base-url: ${ELEARNING_BASE_URL:http://localhost:8080}
-  elearning-ws-url: ${ELEARNING_WS_URL:ws://localhost:8080/ws}
+  elearning-base-url: ${ELEARNING_BASE_URL:http://elearning-service:7716}
+  elearning-ws-url: ${ELEARNING_WS_URL:ws://elearning-service:7716/ws}
