@@ -1,0 +1,28 @@
+server:
+  port: ${PORT:8086}
+
+spring:
+  datasource:
+    url: jdbc:postgresql://192.168.121.23:5432/elearning_dev
+    username: postgres
+    password: X@x123987654
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      pool-name: bot-service-dev-pool
+      maximum-pool-size: 20
+      max-lifetime: 1800000
+      idle-timeout: 300000
+      connection-timeout: 30000
+      minimum-idle: 2
+  data:
+    redis:
+      host: 192.168.121.32
+      port: 6379
+      password: 12345678x@X
+      database: 3
+      timeout: 30000
+
+bot:
+  service-api-key: ${BOT_SERVICE_API_KEY:bot-internal-secret-key}
+  elearning-base-url: ${ELEARNING_BASE_URL:http://elearning-service:7716}
+  elearning-ws-url: ${ELEARNING_WS_URL:ws://elearning-service:7716/ws}
