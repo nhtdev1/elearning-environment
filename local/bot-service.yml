@@ -3,7 +3,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://192.168.121.23:5432/elearning_dev
+    url: jdbc:postgresql://localhost:5432/elearning_dev
     username: postgres
     password: X@x123987654
     driver-class-name: org.postgresql.Driver
