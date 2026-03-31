@@ -25,5 +25,5 @@ spring:
 
 bot:
   service-api-key: ${BOT_SERVICE_API_KEY:bot-internal-secret-key}
-  elearning-base-url: ${ELEARNING_BASE_URL:http://elearning-service/elearning}
+  elearning-base-url: ${ELEARNING_BASE_URL:http://localhost:7716/elearning}
   elearning-ws-url: ${ELEARNING_WS_URL:ws://localhost:7716/elearning/ws}
