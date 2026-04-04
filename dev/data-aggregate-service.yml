@@ -6,6 +6,6 @@ route-config:
     -
       objectName: USER_OBJECT
       serviceName: elearning-service
-      endPoint: /elearning/users/{id}
+      endPoint: /elearning/internal/users/{id}
       method: GET
       description: Return user info by user id
