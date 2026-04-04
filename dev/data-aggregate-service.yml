@@ -1,8 +1,7 @@
 route-config:
   routes:
-    -
-      objectName: USER_OBJECT
-      serviceName: elearning-service
-      endPoint: /elearning/internal/users/{id}
-      method: GET
-      description: Return user info by user id
+    - objectName: USER_OBJECT
+      serviceName: elearning-service
+      endPoint: '/elearning/internal/users/{id}'
+      method: GET
+      description: Return user info by user id
