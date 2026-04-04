@@ -1,3 +1,6 @@
+server:
+  port: ${PORT:8021}
+  
 route-config:
   routes:
     -
