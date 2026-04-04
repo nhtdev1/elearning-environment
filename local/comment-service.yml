@@ -1,0 +1,8 @@
+server:
+  servlet:
+    context-path: /comment
+  port: ${PORT:8386}
+
+spring:
+  mongodb:
+    database: db_elearning_comment
