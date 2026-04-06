@@ -23,3 +23,9 @@ route-config:
       endPoint: '/elearning/internal/vocab-categories/{id}'
       method: GET
       description: Return vocabulary category by id
+
+    - objectName: GRAMMAR_LESSON_OBJECT
+      serviceName: elearning-service
+      endPoint: '/elearning/internal/grammar-lessons/{id}'
+      method: GET
+      description: Return grammar lesson name and category by id
