@@ -8,7 +8,7 @@ route-config:
 
     - objectName: TOEIC_TEST_OBJECT
       serviceName: elearning-service
-      endPoint: '/elearning/tests/{id}'
+      endPoint: '/elearning/internal/tests/{id}'
       method: GET
       description: Return TOEIC test overview by id
 
