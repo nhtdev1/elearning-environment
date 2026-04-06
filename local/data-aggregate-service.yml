@@ -14,12 +14,12 @@ route-config:
 
     - objectName: VOCAB_WORD_OBJECT
       serviceName: elearning-service
-      endPoint: '/elearning/vocabularies/{id}'
+      endPoint: '/elearning/internal/vocabularies/{id}'
       method: GET
       description: Return vocabulary word by id
 
     - objectName: VOCAB_CATEGORY_OBJECT
       serviceName: elearning-service
-      endPoint: '/elearning/vocab-categories/{id}'
+      endPoint: '/elearning/internal/vocab-categories/{id}'
       method: GET
       description: Return vocabulary category by id
