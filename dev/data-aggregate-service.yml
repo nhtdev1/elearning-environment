@@ -5,3 +5,21 @@ route-config:
       endPoint: '/elearning/internal/users/{id}'
       method: GET
       description: Return user info by user id
+
+    - objectName: TOEIC_TEST_OBJECT
+      serviceName: elearning-service
+      endPoint: '/elearning/tests/{id}'
+      method: GET
+      description: Return TOEIC test overview by id
+
+    - objectName: VOCAB_WORD_OBJECT
+      serviceName: elearning-service
+      endPoint: '/elearning/vocabularies/{id}'
+      method: GET
+      description: Return vocabulary word by id
+
+    - objectName: VOCAB_CATEGORY_OBJECT
+      serviceName: elearning-service
+      endPoint: '/elearning/vocab-categories/{id}'
+      method: GET
+      description: Return vocabulary category by id
