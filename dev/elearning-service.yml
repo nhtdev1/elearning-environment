@@ -75,3 +75,6 @@ spring:
 
 app:
   swagger-url: https://api-swwebdeverp-develop.tma-swerp.com
+
+dev:
+  api-key: ${DEV_API_KEY:dev-sync-key-local-only}
