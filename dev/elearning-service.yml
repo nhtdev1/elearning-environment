@@ -78,3 +78,7 @@ app:
 
 dev:
   api-key: ${DEV_API_KEY:dev-sync-key-local-only}
+oauth2:
+  facebook:
+    graph-api-url: ${FACEBOOK_GRAPH_API_URL:https://graph.facebook.com}
+    user-info-fields: ${FACEBOOK_USER_INFO_FIELDS:id,name,email,first_name,last_name}
