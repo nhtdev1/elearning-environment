@@ -155,7 +155,7 @@ app:
   client:
     domain: http://dev-sso.tma-swerp.com
   gateway:
-    domain-name: https://api-swwebdeverp-develop.tma-swerp.com
+    domain-name: https://api.nopnog.com
 
 jwt:
   accessTokenExpired: 602
