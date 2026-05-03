@@ -82,12 +82,3 @@ oauth2:
   facebook:
     graph-api-url: ${FACEBOOK_GRAPH_API_URL:https://graph.facebook.com}
     user-info-fields: ${FACEBOOK_USER_INFO_FIELDS:id,name,email,first_name,last_name}
-social:
-  youtube:
-    client-id: ${YOUTUBE_CLIENT_ID:stub}
-    client-secret: ${YOUTUBE_CLIENT_SECRET:stub}
-    redirect-uri: ${YOUTUBE_REDIRECT_URI:http://localhost:5173/settings/integrations/callback}
-  tiktok:
-    client-key: ${TIKTOK_CLIENT_KEY:stub}
-    client-secret: ${TIKTOK_CLIENT_SECRET:stub}
-    redirect-uri: ${TIKTOK_REDIRECT_URI:http://localhost:5173/settings/integrations/callback}
